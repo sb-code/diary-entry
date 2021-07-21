@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+<h1> <%= tit %> </h1>
+<p> <%= content %></p>
+<% for(var i=0; i<articles.length; i++){ %>
+    <h2> <%= titles[i] %></h2>
+    <p> <%=articles[i].substring(0, 50) %>...<a href="/posts/<%=titles[i] %> ">Read more</a>  </p> 
+<% } %>
+
+
+</body>
+</html>
+
+<%- include("partials/footer") %>
