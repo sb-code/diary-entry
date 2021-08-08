@@ -194,13 +194,17 @@ app.post("/login", function(req, res){
   });
 
   req.login(user, function(err){
-    if(err) console.log(err);
+    if(err) {
+      console.log(err);
+      res.redirect("/register");
+    }
     else
     {
       passport.authenticate("local")(req, res, function(){
         console.log("success");
         res.redirect("/blogpage");
       });
+      //res.redirect("/register");
       
     }
   });
@@ -365,6 +369,6 @@ app.get("/posts/:postval", function(req, res){
 
 
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Server started on port 3000");
 });
